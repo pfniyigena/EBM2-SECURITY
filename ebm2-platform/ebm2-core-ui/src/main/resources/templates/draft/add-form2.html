@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<title>My RRA Taxpayer Insurances(Add Form)</title>
+<th:block th:include="fragments/header :: head"></th:block>
+</head>
+<body>
+	<th:block th:include="fragments/header :: pre-loader"></th:block>
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
+
+			<th:block th:include="fragments/header :: navbar-top"></th:block>
+
+			<div class="pcoded-main-container">
+				<div class="pcoded-wrapper">
+					<th:block th:include="fragments/header :: navbar-left"></th:block>
+
+					<div class="pcoded-content">
+						<!-- Page-header start -->
+						<div class="page-header">
+							<div class="page-block">
+								<div class="row align-items-center">
+									<div class="col-md-8">
+										<div class="page-header-title">
+											<h5 class="m-b-10">Dashboard</h5>
+											<p class="m-b-0">Welcome to My RRA</p>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<ul class="breadcrumb-title">
+											<li class="breadcrumb-item"><a href="index.html"> <em
+													class="fa fa-home"></em>
+											</a></li>
+											<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Page-header end -->
+						<div class="pcoded-inner-content">
+							<!-- Main-body start -->
+							<div class="main-body">
+								<div class="page-wrapper">
+									<!-- Page-body start -->
+									<div class="page-body">
+
+										<div class="card">
+											<div class="card-block">
+                                                <div class="table-responsive">
+													<table
+														class="table table-bordered table-hover table-sortable"
+														id="tab_logic">
+														<caption></caption>
+														<thead>
+															<tr>
+																<th scope="col" class="text-center">Name</th>
+																<th scope="col"  class="text-center">Email</th>
+																<th scope="col"  class="text-center">Notes</th>
+																<th scope="col"  class="text-center">Option</th>
+																<th scope="col"   class="text-center"
+																	style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+																</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr id='addr0' data-id="0" class="hidden">
+																<td data-name="name"><input type="text"
+																	name='name0' placeholder='Name' class="form-control" />
+																</td>
+																<td data-name="mail"><input type="text"
+																	name='mail0' placeholder='Email' class="form-control" />
+																</td>
+																<td data-name="desc"><textarea name="desc0"
+																		placeholder="Description" class="form-control"></textarea>
+																</td>
+																<td data-name="sel"><select name="sel0">
+																		<option value="">Select Option</option>
+																		<option value="1">Option 1</option>
+																		<option value="2">Option 2</option>
+																		<option value="3">Option 3</option>
+																</select></td>
+																<td data-name="del">
+																	<button name="del0"
+																		class='icofont icofont-ui-delete btn btn-danger glyphicon glyphicon-remove row-remove'>
+																		<span aria-hidden="true">×</span>
+																	</button>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<a id="add_row" class="btn btn-primary float-right">Add
+												Row</a>
+											</div>
+											
+										</div>
+									</div>
+									<!-- Page-body end -->
+								</div>
+								<div id="styleSelector"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="fragments/header :: footer"></th:block>
+</body>
+
+</html>

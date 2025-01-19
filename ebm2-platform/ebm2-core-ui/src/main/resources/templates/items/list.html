@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<title>My RRA Platform Items</title>
+<th:block th:include="fragments/header :: head"></th:block>
+</head>
+<body>
+	<th:block th:include="fragments/header :: pre-loader"></th:block>
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
+
+			<th:block th:include="fragments/header :: navbar-top"></th:block>
+
+			<div class="pcoded-main-container">
+				<div class="pcoded-wrapper">
+					<th:block th:include="fragments/header :: navbar-left"></th:block>
+
+					<div class="pcoded-content">
+						<!-- Page-header start -->
+						<div class="page-header">
+							<div class="page-block">
+								<div class="row align-items-center">
+									<div class="col-md-8">
+										<div class="page-header-title">
+											<h5 class="m-b-10">Dashboard</h5>
+											<p class="m-b-0">Welcome to My RRA</p>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<ul class="breadcrumb-title">
+											<li class="breadcrumb-item"><a href="#" th:href="@{/}">
+													<em class="fa fa-home"></em>
+											</a></li>
+											<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Page-header end -->
+						<div class="pcoded-inner-content">
+							<!-- Main-body start -->
+							<div class="main-body">
+								<div class="page-wrapper">
+									<!-- Page-body start -->
+									<div class="page-body">
+
+										<!-- Hover table card start -->
+										<div class="card">
+											<div class="card-header">
+												<h5>Items</h5>
+
+												<a href="#" th:href="@{/items/download/}"
+													class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger"><em
+													class="icofont icofont-download m-r-5"></em>Download</a>
+
+											</div>
+											<div class="dt-responsive table-responsive">
+												<table id="code-type-table"
+													class="table table-striped table-bordered compact nowrap"
+													th:if="${lists != null}">
+													<caption></caption>
+													<thead>
+														<tr>
+															<th scope="col" th:text="#{registeredTin}"></th>
+															<th scope="col" th:text="#{registBranchId}"></th>
+															<th scope="col" th:text="#{rraModif}"></th>
+															<th scope="col" th:text="#{itemName}"></th>
+															<th scope="col" th:text="#{itemCode}"></th>
+															<th scope="col" th:text="#{barcode}"></th>
+															<th scope="col" th:text="#{stock}"></th>
+															<th scope="col" th:text="#{sent}"></th>
+															<th scope="col" th:text="#{stock}"></th>
+															<th scope="col" th:text=#{actions}></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr th:each="list : ${lists}">
+															<td th:text="${list.registredTin}"></td>
+															<td th:text="${list.registBranchId}"></td>
+															<td th:text="${list.rraModif}"></td>
+															<td th:text="${list.itemName}"></td>
+															<td th:text="${list.itemCode}"></td>
+															<td th:text="${list.barcode}"></td>
+															<td th:text="${list.currentStock}"></td>
+															<td th:text="${list.sentServer}"></td>
+															<td th:text="${list.stockSent}"></td>
+															<td><a href="#"
+																th:href="@{'/items/edit/' + ${list.id}}"
+																class="waves-effect waves-dark"><span
+																	class="pcoded-micon"><em class="ti-pencil"></em></span></a></td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+
+									</div>
+									<!-- Hover table card end -->
+
+								</div>
+
+								<!-- Page-body end -->
+							</div>
+							<div id="styleSelector"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<th:block th:include="fragments/header :: footer"></th:block>
+</body>
+
+</html>

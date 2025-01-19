@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<th:block th:include="fragments/header :: head"></th:block>
+</head>
+<body>
+	<th:block th:include="fragments/header :: pre-loader"></th:block>
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
+
+			<th:block th:include="fragments/header :: navbar-top"></th:block>
+
+			<div class="pcoded-main-container">
+				<div class="pcoded-wrapper">
+					<th:block th:include="fragments/header :: navbar-left"></th:block>
+
+					<div class="pcoded-content">
+						<!-- Page-header start -->
+						<div class="page-header">
+							<div class="page-block">
+								<div class="row align-items-center">
+									<div class="col-md-8">
+										<div class="page-header-title">
+											<h5 class="m-b-10">Dashboard</h5>
+											<p class="m-b-0">Welcome to Keza Learning Compass</p>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<ul class="breadcrumb-title">
+											<li class="breadcrumb-item"><a href="index.html"> <em
+													class="fa fa-home"></em>
+											</a></li>
+											<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Page-header end -->
+						<div class="pcoded-inner-content">
+							<!-- Main-body start -->
+							<div class="main-body">
+								<div class="page-wrapper">
+									<!-- Page-body start -->
+									<div class="page-body">
+										<!-- Input Alignment card start -->
+										<div class="card">
+											<div class="card-header">
+												<h5>Company Details</h5>
+											</div>
+											<div class="card-block">
+												<form th:object="${companyDto}" th:action="@{/companies/update}"
+													method="post">
+													<input type="hidden" th:field="*{id}" />
+
+													<div class="form-group row row">
+														<label class="col-sm-2 col-form-label" for="status">Status</label>
+														<div class="col-sm-10 has-danger ">
+															<select name="status" id="status">
+																<option
+																	th:each="status : ${T(rw.mangatek.ebm2.core.enns.CompanyStatus).values()}"
+																	th:value="${status}" th:text="${status}"></option>
+															</select> <span class="col-form-label"
+																th:if="${#fields.hasErrors('status')}"
+																th:errors="*{status}"></span>
+														</div>
+													</div>
+													<div class="card-block">
+														<button type="submit"
+															class="btn btn-success btn-round waves-effect waves-light"
+															th:text="#{button.register}">Register</button>
+
+														<a href="#" th:href="@{/companies/list}"
+															class="btn btn-danger btn-round waves-effect waves-light"
+															th:text="#{button.cancel}">Cancel</a>
+													</div>
+												</form>
+											</div>
+										</div>
+										<!-- Input Alignment card end -->
+
+									</div>
+									<!-- Page-body end -->
+								</div>
+								<div id="styleSelector"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="fragments/header :: footer"></th:block>
+</body>
+
+</html>

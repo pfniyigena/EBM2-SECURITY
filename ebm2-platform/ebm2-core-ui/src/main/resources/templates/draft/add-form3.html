@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<title>My RRA Taxpayer Branches(Add Form)</title>
+<th:block th:include="fragments/header :: head"></th:block>
+</head>
+<body>
+	<th:block th:include="fragments/header :: pre-loader"></th:block>
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
+
+			<th:block th:include="fragments/header :: navbar-top"></th:block>
+
+			<div class="pcoded-main-container">
+				<div class="pcoded-wrapper">
+					<th:block th:include="fragments/header :: navbar-left"></th:block>
+
+					<div class="pcoded-content">
+						<!-- Page-header start -->
+						<div class="page-header">
+							<div class="page-block">
+								<div class="row align-items-center">
+									<div class="col-md-8">
+										<div class="page-header-title">
+											<h5 class="m-b-10">Dashboard</h5>
+											<p class="m-b-0">Welcome to My RRA</p>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<ul class="breadcrumb-title">
+											<li class="breadcrumb-item"><a href="index.html"> <em
+													class="fa fa-home"></em>
+											</a></li>
+											<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Page-header end -->
+						<div class="pcoded-inner-content">
+							<!-- Main-body start -->
+							<div class="main-body">
+								<div class="page-wrapper">
+									<!-- Page-body start -->
+									<div class="page-body">
+										<!-- Input Alignment card start -->
+										<div class="card">
+											<div class="card-header">
+												<h5>Add Branch</h5>
+											</div>
+											<div class="card-block">
+												<section>
+													<h2>Add Subject Group</h2>
+													<form action="#" th:action="@{/invoices/add}"
+														th:object="${invoiceDto}" method="POST">
+														<p>
+															<input type="text" th:field="*{customerId}"
+																placeholder="Name..." />
+														</p>
+														<h3>Options</h3>
+														<button type="submit" name="addSale">Add Option</button>
+														<table>
+															<caption></caption>
+															<tr th:each="sale, rowStat : *{sales}">
+																<td><select
+																	th:field="*{sales[__${rowStat.index}__].productId}"
+																	class="js-example-basic-single col-sm-12">
+																		<option value="" th:text="#{select.none}"></option>
+																		<option th:each="item: ${items}" th:value="${item.id}"
+																			th:text="${item.itemName}"></option>
+																</select> <input type="text"
+																	th:field="*{sales[__${rowStat.index}__].productId}"
+																	placeholder="Sale..." /></td>
+																<td><input type="number" step=any
+																	th:field="*{sales[__${rowStat.index}__].unitPrice}"
+																	placeholder="UP..." /></td>
+																<td><input type="number" step=any
+																	th:field="*{sales[__${rowStat.index}__].quantity}"
+																	placeholder="Quantity..." /></td>
+																<td><input type="text" step=any
+																	th:field="*{sales[__${rowStat.index}__].taxLabel}"
+																	placeholder="Quantity..." /></td>
+																<td><input type="number" step=any
+																	th:field="*{sales[__${rowStat.index}__].discount}"
+																	placeholder="Discount..." /></td>
+																<td><input type="number" step=any
+																	th:field="*{sales[__${rowStat.index}__].totalAmount}"
+																	placeholder="Total..." /></td>
+															</tr>
+														</table>
+														<button type="submit">Add</button>
+													</form>
+												</section>
+											</div>
+										</div>
+										<!-- Input Alignment card end -->
+
+									</div>
+									<!-- Page-body end -->
+								</div>
+								<div id="styleSelector"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="fragments/header :: footer"></th:block>
+</body>
+
+</html>

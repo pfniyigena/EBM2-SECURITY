@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="jcenter-snapshots" />
+      <option name="name" value="jcenter" />
+      <option name="url" value="https://jcenter.bintray.com/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="security" />
+      <option name="name" value="security" />
+      <option name="url" value="http://wys.tilaa.cloud:8082/artifactory/security" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jaspersoft-third-party" />
+      <option name="name" value="jaspersoft-third-party" />
+      <option name="url" value="http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jasperreports" />
+      <option name="name" value="jasperreports" />
+      <option name="url" value="http://jasperreports.sourceforge.net/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="domain" />
+      <option name="name" value="domain" />
+      <option name="url" value="http://wys.tilaa.cloud:8082/artifactory/domain" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="service" />
+      <option name="name" value="service" />
+      <option name="url" value="http://wys.tilaa.cloud:8082/artifactory/service" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="framework" />
+      <option name="name" value="framework" />
+      <option name="url" value="http://wys.tilaa.cloud:8082/artifactory/framework" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven Repo1" />
+      <option name="name" value="maven Repo1" />
+      <option name="url" value="http://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Sonatype repository" />
+      <option name="name" value="Sonatype's Maven repository" />
+      <option name="url" value="http://oss.sonatype.org/content/groups/public" />
+    </remote-repository>
+  </component>
+</project>

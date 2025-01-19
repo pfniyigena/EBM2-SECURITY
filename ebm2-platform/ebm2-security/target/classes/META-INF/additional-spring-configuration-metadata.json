@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "management.endpoints.web.exposure.include",
+    "type": "java.lang.String",
+    "description": "A description for 'management.endpoints.web.exposure.include'"
+  },
+  {
+    "name": "rw.mangatek.chms",
+    "type": "java.lang.String",
+    "description": "A description for 'rw.mangatek.chms'"
+  },
+  {
+    "name": "send.invoices.cron.expression",
+    "type": "java.lang.String",
+    "description": "A description for 'send.invoices.cron.expression'"
+  },
+  {
+    "name": "send.stock.cron.expression",
+    "type": "java.lang.String",
+    "description": "A description for 'send.stock.cron.expression'"
+  },
+  {
+    "name": "send.items.cron.expression",
+    "type": "java.lang.String",
+    "description": "A description for 'send.items.cron.expression'"
+  },
+  {
+    "name": "send.stock.move.cron.expression",
+    "type": "java.lang.String",
+    "description": "A description for 'send.stock.move.cron.expression'"
+  },
+  {
+    "name": "send.customers.cron.expression",
+    "type": "java.lang.String",
+    "description": "A description for 'send.customers.cron.expression'"
+  },
+  {
+    "name": "send.importations.cron.expression",
+    "type": "java.lang.String",
+    "description": "A description for 'send.importations.cron.expression'"
+  },
+  {
+    "name": "spring.datasource.hikari.maxLifeTime",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.hikari.maxLifeTime'"
+  }
+]}

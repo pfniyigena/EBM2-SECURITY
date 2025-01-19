@@ -1,0 +1,17 @@
+rw\mangatek\ebm2\core\security\controller\CompanyController.class
+rw\mangatek\ebm2\core\security\api\IndexController.class
+rw\mangatek\ebm2\core\security\OnSecurityStartUp.class
+rw\mangatek\ebm2\core\security\dto\LicenseResponseDto$LicenseResponseDtoBuilder.class
+rw\mangatek\ebm2\core\security\api\LicenseApi$GsonUTCDateAdapter.class
+rw\mangatek\ebm2\core\security\config\ThymeleafTemplateConfig.class
+rw\mangatek\ebm2\core\security\api\LicenseApi.class
+rw\mangatek\ebm2\core\security\util\JournalFormatter.class
+rw\mangatek\ebm2\core\security\config\WebConfiguration.class
+rw\mangatek\ebm2\core\security\util\SecurityStaticThymeleafView.class
+rw\mangatek\ebm2\core\security\MangatekInternalSecurityApplication.class
+rw\mangatek\ebm2\core\security\dto\CompanyRequestDto.class
+rw\mangatek\ebm2\core\security\dto\CompanyDto.class
+rw\mangatek\ebm2\core\security\api\StaticSignatureApi.class
+rw\mangatek\ebm2\core\security\util\CoreUIStatiValue.class
+rw\mangatek\ebm2\core\security\util\MangatekInternalSecurityUtil.class
+rw\mangatek\ebm2\core\security\dto\LicenseResponseDto.class
