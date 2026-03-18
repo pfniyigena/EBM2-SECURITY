@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: COMPUTER
+Build-Jdk: 21.0.7
+Implementation-Title: ebm2-core
+Implementation-Version: 1.0.1
+Implementation-Vendor-Id: rw.mangatek.ebm2
+Implementation-URL: http://www.mangatek.tech
+Created-By: Maven Integration for Eclipse
+
