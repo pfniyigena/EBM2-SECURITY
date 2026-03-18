@@ -34,11 +34,9 @@ import rw.mangatek.ebm2.core.security.util.CoreUIStatiValue;
 @RestController
 public class StaticSignatureApi {
 
-	
-
 	@PostMapping(value = "/mangatek/rest/api/post/cisinvoice")
 	public @ResponseBody ResponseEntity<LicenseResponseDto> generateInvoices(HttpServletRequest request,
-																			 HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {
 		HttpHeaders headers = new HttpHeaders();
 
 		try {
@@ -56,18 +54,18 @@ public class StaticSignatureApi {
 			return new ResponseEntity<>(new LicenseResponseDto(null), headers, HttpStatus.OK);
 		}
 	}
+
 	@PostMapping(value = "/rra/rest/api/post/cisinvoice")
 	public @ResponseBody ResponseEntity<LicenseResponseDto> generateInvoicesFromRRRA(HttpServletRequest request,
-																			 HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {
 		HttpHeaders headers = new HttpHeaders();
 
 		try {
 			log.debug(String.format("-----Requesting signature:%s",
 					"SDC014000807,24531,24531,NS,2024-10-15 11:29:53,U2O4NOWJZ5P4A2EL,XAIE3E25NPZVBIQAQFVWBTW7LA"));
 			headers.add(CoreUIStatiValue.ERROR_KEY, null);
-			return new ResponseEntity<>(
-					new LicenseResponseDto(
-							"SDC014000807,24531,24531,NS,2024-10-15 11:29:53,U2O4NOWJZ5P4A2EL,XAIE3E25NPZVBIQAQFVWBTW7LA"),
+			return new ResponseEntity<>(new LicenseResponseDto(
+					"SDC014000807,24531,24531,NS,2024-10-15 11:29:53,U2O4NOWJZ5P4A2EL,XAIE3E25NPZVBIQAQFVWBTW7LA"),
 					headers, HttpStatus.OK);
 
 		} catch (Exception e) {
@@ -76,40 +74,41 @@ public class StaticSignatureApi {
 			return new ResponseEntity<>(new LicenseResponseDto(null), headers, HttpStatus.OK);
 		}
 	}
-	
-	@PostMapping(
-	        value = "/mangatek/rest/api/vsdc/activation", 
-	        consumes = MediaType.APPLICATION_XML_VALUE, // Expects XML input
-	        produces = MediaType.APPLICATION_XML_VALUE  // Returns XML output
-	    )
-	    public ResponseWrapper processActivation(@RequestBody String requestXml) {
-	        // Log the incoming request for debugging
-	        System.out.println("Received Request: " + requestXml);
 
-	        // Create the Response Object
-	        ResponseWrapper response = new ResponseWrapper();
-	        
-	        // 1. Set Header
-	        Header header = new Header();
-	        header.setResultCode("00");
-	        header.setResultMsg("SUCCESS");
-	        header.setResDt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
-	        response.setHeader(header);
+	@PostMapping(value = "/mangatek/rest/api/vsdc/activation", consumes = { MediaType.APPLICATION_XML_VALUE,
+			"text/xml" }, produces = MediaType.APPLICATION_XML_VALUE // Returns XML output
+	)
+	public ResponseWrapper processActivation(@RequestBody String requestXml) {
+		// Log the incoming request for debugging
+		System.out.println("Received Request: " + requestXml);
 
-	        // 2. Set Row Data
-	        Row row = new Row();
-	        row.setTable("VSDCACTIVATION");
-	        row.setActionCd("ACT");
-	        row.setTin("100018436");
-	        row.setMrcno("WIS01042351");
-	        row.setIntkey("PK4IMVE34VWM77RBN3NJJXU3TZQSXMCH73H646O5SYEF5LSYXSCZO4W3EAUZXHQN5XV3C2HUCB5FX6TWKE6TN65DYXQIVVPTHEPJVQY");
-	        row.setSignkey("MOHIGA3S3SVMSCU4JAQRPPJI73W5EPETGIRQWFXNNYGIDRBUWJVRIC6NR5PMXE4CWJTK3Q36ZSFZEMQZUVDBWRWW26RVLM2BVSAWCXY");
-	        row.setCommkey("YLIR4WKU3H4SJ466GOUAP63PXVN6CTEWWG2O7XFUTKRZFGCFBZYWYIARHU53F7PZGZCLG2YS2UH3SCNOYCQ3XANRMT6GSKBTLOKMDOY");
-	        row.setToken("10797EE2-E107-4320-9FE0-1D32D9D694CB");
-	        row.setNonVat("00");
-	        row.setTrsmTaxFlg("N");
-	        response.setRow(row);
+		// Create the Response Object
+		ResponseWrapper response = new ResponseWrapper();
 
-	        return response;
-	    }
+		// 1. Set Header
+		Header header = new Header();
+		header.setResultCode("00");
+		header.setResultMsg("SUCCESS");
+		header.setResDt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
+		response.setHeader(header);
+
+		// 2. Set Row Data
+		Row row = new Row();
+		row.setTable("VSDCACTIVATION");
+		row.setActionCd("ACT");
+		row.setTin("100018436");
+		row.setMrcno("WIS01042351");
+		row.setIntkey(
+				"PK4IMVE34VWM77RBN3NJJXU3TZQSXMCH73H646O5SYEF5LSYXSCZO4W3EAUZXHQN5XV3C2HUCB5FX6TWKE6TN65DYXQIVVPTHEPJVQY");
+		row.setSignkey(
+				"MOHIGA3S3SVMSCU4JAQRPPJI73W5EPETGIRQWFXNNYGIDRBUWJVRIC6NR5PMXE4CWJTK3Q36ZSFZEMQZUVDBWRWW26RVLM2BVSAWCXY");
+		row.setCommkey(
+				"YLIR4WKU3H4SJ466GOUAP63PXVN6CTEWWG2O7XFUTKRZFGCFBZYWYIARHU53F7PZGZCLG2YS2UH3SCNOYCQ3XANRMT6GSKBTLOKMDOY");
+		row.setToken("10797EE2-E107-4320-9FE0-1D32D9D694CB");
+		row.setNonVat("00");
+		row.setTrsmTaxFlg("N");
+		response.setRow(row);
+
+		return response;
+	}
 }
