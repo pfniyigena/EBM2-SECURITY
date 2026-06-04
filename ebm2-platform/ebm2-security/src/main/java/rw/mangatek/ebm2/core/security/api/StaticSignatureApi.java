@@ -24,6 +24,8 @@ import rw.mangatek.ebm2.core.security.dto.Header;
 import rw.mangatek.ebm2.core.security.dto.LicenseResponseDto;
 import rw.mangatek.ebm2.core.security.dto.ResponseWrapper;
 import rw.mangatek.ebm2.core.security.dto.Row;
+import rw.mangatek.ebm2.core.security.dto.RraVscDataResponseDto;
+import rw.mangatek.ebm2.core.security.dto.RraVscResponseDto;
 import rw.mangatek.ebm2.core.security.util.CoreUIStatiValue;
 
 /**
@@ -110,5 +112,31 @@ public class StaticSignatureApi {
 		response.setRow(row);
 
 		return response;
+	}
+
+	@PostMapping(value = "/trnsSales/saveSales",produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<RraVscResponseDto> returnRraVscResponseDto(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		HttpHeaders headers = new HttpHeaders();
+
+		try {
+			log.debug(String.format("-----returnRraVscResponseDto:%s",
+					"SDC014000807,24531,24531,NS,2024-10-15 11:29:53,U2O4NOWJZ5P4A2EL,XAIE3E25NPZVBIQAQFVWBTW7LA"));
+			headers.add(CoreUIStatiValue.ERROR_KEY, null);
+			RraVscResponseDto rraVscResponseDto = RraVscResponseDto.builder().resultCd("000")
+					.resultMsg("It is succeeded")
+					.resultDt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")))
+					.rraVscDataResponseDto(RraVscDataResponseDto.builder().intrlData("5BHRN3AQ7RB6UKDO3XA5FLEEWU")
+							.rcptSign("U47NUJSPJOF4DLJR").rcptNo(1).totRcptNo(1)
+							.vsdcRcptPbctDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")))
+							.sdcId("SDC014000807").mrcNo("WIS01042351").build())
+					.build();
+			return new ResponseEntity<>(rraVscResponseDto, headers, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			headers.add(CoreUIStatiValue.ERROR_KEY, "Exception occur Contact Admin--");
+			return new ResponseEntity<>(RraVscResponseDto.builder().build(), headers, HttpStatus.OK);
+		}
 	}
 }

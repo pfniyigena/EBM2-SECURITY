@@ -1,1 +1,29 @@
 /.metadata/
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse / Spring Tool Suite (STS)
+.project
+.classpath
+.settings/
+.apt_generated/
+.factorypath
+
+# IntelliJ IDEA
+*.iml
+.idea/
+out/
+logs/
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
